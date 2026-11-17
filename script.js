@@ -1,40 +1,59 @@
-// =====================================================
-// CARROSSEL GENÉRICO & REUTILIZÁVEL (LOCI ARENA)
-// Funciona para Campeões, Participantes e qualquer outra trilha
-// =====================================================
+/* ==========================================
+   LOCI ARENA
+   Carrossel de Campeões
+========================================== */
 
-function initCarousel({ trackId, prevBtnId, nextBtnId, indicatorsId }) {
-    const track = document.getElementById(trackId);
-    const prevButton = document.getElementById(prevBtnId);
-    const nextButton = document.getElementById(nextBtnId);
-    const indicators = document.getElementById(indicatorsId);
+document.addEventListener("DOMContentLoaded", () => {
 
-    if (!track) return;
+    const track = document.getElementById("championTrack");
+    const prevButton = document.getElementById("championPrevBtn");
+    const nextButton = document.getElementById("championNextBtn");
+    const indicators = document.getElementById("championIndicators");
+
+    if (!track || !prevButton || !nextButton || !indicators) {
+        console.warn("Elementos do carrossel não encontrados.");
+        return;
+    }
 
     const cards = Array.from(track.children);
-    if (cards.length === 0) return;
+
+    if (cards.length === 0) {
+        return;
+    }
 
     let currentIndex = 0;
 
-    // Cria os indicadores (dots)
-    if (indicators) {
-        indicators.innerHTML = "";
-        cards.forEach((_, index) => {
-            const dot = document.createElement("button");
-            dot.classList.add("carousel-dot");
-            dot.setAttribute("aria-label", `Item ${index + 1}`);
+    // CRIA AS BOLINHAS DE NAVEGAÇÃO
 
-            dot.addEventListener("click", () => {
-                currentIndex = index;
-                updateCarousel();
-            });
+    indicators.innerHTML = "";
 
-            indicators.appendChild(dot);
+    cards.forEach((card, index) => {
+
+        const dot = document.createElement("button");
+
+        dot.classList.add("carousel-dot");
+
+        dot.setAttribute(
+            "aria-label",
+            `Ir para o campeão ${index + 1}`
+        );
+
+        dot.addEventListener("click", () => {
+            currentIndex = index;
+            updateCarousel();
         });
-    }
+
+        indicators.appendChild(dot);
+
+    });
+
+
+    // ATUALIZA A POSIÇÃO DO CARROSSEL
 
     function updateCarousel() {
+
         const card = cards[currentIndex];
+
         if (!card) return;
 
         track.scrollTo({
@@ -42,72 +61,123 @@ function initCarousel({ trackId, prevBtnId, nextBtnId, indicatorsId }) {
             behavior: "smooth"
         });
 
-        if (indicators) {
-            const dots = indicators.querySelectorAll(".carousel-dot");
-            dots.forEach((dot, index) => {
-                dot.classList.toggle("active", index === currentIndex);
-            });
-        }
+        updateIndicators();
+
     }
 
-    if (nextButton) {
-        nextButton.addEventListener("click", () => {
+
+    // ATUALIZA AS BOLINHAS
+
+    function updateIndicators() {
+
+        const dots = indicators.querySelectorAll(".carousel-dot");
+
+        dots.forEach((dot, index) => {
+
+            dot.classList.toggle(
+                "active",
+                index === currentIndex
+            );
+
+        });
+
+    }
+
+
+    // BOTÃO PRÓXIMO
+
+    nextButton.addEventListener("click", () => {
+
+        currentIndex++;
+
+        if (currentIndex >= cards.length) {
+            currentIndex = 0;
+        }
+
+        updateCarousel();
+
+    });
+
+
+    // BOTÃO ANTERIOR
+
+    prevButton.addEventListener("click", () => {
+
+        currentIndex--;
+
+        if (currentIndex < 0) {
+            currentIndex = cards.length - 1;
+        }
+
+        updateCarousel();
+
+    });
+
+
+    // PERMITE NAVEGAÇÃO PELO TECLADO
+
+    document.addEventListener("keydown", (event) => {
+
+        const tag = document.activeElement.tagName;
+
+        if (tag === "INPUT" || tag === "TEXTAREA") {
+            return;
+        }
+
+        if (event.key === "ArrowRight") {
+
             currentIndex = (currentIndex + 1) % cards.length;
             updateCarousel();
-        });
-    }
 
-    if (prevButton) {
-        prevButton.addEventListener("click", () => {
+        }
+
+        if (event.key === "ArrowLeft") {
+
             currentIndex = (currentIndex - 1 + cards.length) % cards.length;
             updateCarousel();
-        });
-    }
 
-    // Atualização em rolagem livre / swipe touch
+        }
+
+    });
+
+
+    // ATUALIZA O ÍNDICE QUANDO O USUÁRIO ARRASTA O CARROSSEL
+
     let scrollTimeout;
+
     track.addEventListener("scroll", () => {
-        window.clearTimeout(scrollTimeout);
+
+        clearTimeout(scrollTimeout);
+
         scrollTimeout = setTimeout(() => {
-            let activeIndex = 0;
-            let minDistance = Infinity;
-            const trackLeft = track.getBoundingClientRect().left;
+
+            const trackPosition = track.scrollLeft;
+
+            let closestIndex = 0;
+            let smallestDistance = Infinity;
 
             cards.forEach((card, index) => {
-                const distance = Math.abs(card.getBoundingClientRect().left - trackLeft);
-                if (distance < minDistance) {
-                    minDistance = distance;
-                    activeIndex = index;
+
+                const cardPosition = card.offsetLeft - track.offsetLeft;
+                const distance = Math.abs(cardPosition - trackPosition);
+
+                if (distance < smallestDistance) {
+                    smallestDistance = distance;
+                    closestIndex = index;
                 }
+
             });
 
-            currentIndex = activeIndex;
-            if (indicators) {
-                const dots = indicators.querySelectorAll(".carousel-dot");
-                dots.forEach((dot, index) => {
-                    dot.classList.toggle("active", index === currentIndex);
-                });
-            }
-        }, 80);
+            currentIndex = closestIndex;
+            updateIndicators();
+
+        }, 100);
+
     });
+
+
+    // INICIALIZA O CARROSSEL
 
     updateCarousel();
-}
 
-document.addEventListener("DOMContentLoaded", () => {
-    // Carrossel dos Campeões
-    initCarousel({
-        trackId: "championTrack",
-        prevBtnId: "championPrevBtn",
-        nextBtnId: "championNextBtn",
-        indicatorsId: "championIndicators"
-    });
-
-    // Carrossel da Equipe / Participantes
-    initCarousel({
-        trackId: "teamTrack",
-        prevBtnId: "teamPrevBtn",
-        nextBtnId: "teamNextBtn",
-        indicatorsId: "teamIndicators"
-    });
 });
