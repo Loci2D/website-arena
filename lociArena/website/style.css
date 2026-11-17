@@ -1,0 +1,847 @@
+/* ==========================================
+   LOCI ARENA
+   Medieval / Fantasy
+   Pergaminho + Floresta + Ouro + Vinho
+========================================== */
+
+
+/* RESET */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #171b16;
+    color: #e9dfc7;
+    font-family: Georgia, "Times New Roman", serif;
+    line-height: 1.7;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button {
+    font-family: inherit;
+}
+
+
+/* VARIÁVEIS */
+
+:root {
+    --forest: #202b22;
+    --forest-dark: #141a16;
+    --forest-light: #344637;
+    --parchment: #e7d7ad;
+    --parchment-light: #f2e8cd;
+    --gold: #c6a45b;
+    --gold-light: #e1c47b;
+    --wine: #692f39;
+    --wine-dark: #48232b;
+    --text-dark: #302a20;
+    --text-light: #e9dfc7;
+}
+
+
+/* NAVBAR */
+
+.navbar {
+    width: 100%;
+    min-height: 76px;
+    padding: 15px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 25px;
+    background: rgba(20, 26, 22, 0.97);
+    border-bottom: 1px solid rgba(198, 164, 91, 0.4);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    color: var(--gold-light);
+    font-size: 23px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    white-space: nowrap;
+}
+
+.logo span {
+    color: var(--parchment);
+}
+
+.navbar nav {
+    display: flex;
+    align-items: center;
+    gap: 27px;
+}
+
+.navbar nav a {
+    color: #e4dbc6;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.navbar nav a:hover {
+    color: var(--gold-light);
+}
+
+.github-button {
+    border: 1px solid var(--gold);
+    padding: 9px 19px;
+    color: var(--gold-light);
+    font-size: 13px;
+    transition: 0.3s;
+    white-space: nowrap;
+}
+
+.github-button:hover {
+    background: var(--gold);
+    color: var(--forest-dark);
+}
+
+
+/* HERO */
+
+.hero {
+    min-height: 610px;
+    padding: 100px 9%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+    position: relative;
+    overflow: hidden;
+    background:
+        radial-gradient(ellipse at 80% 50%, rgba(91, 75, 39, 0.28), transparent 40%),
+        linear-gradient(120deg, #18221b, #26372a 60%, #171d18);
+    border-bottom: 1px solid rgba(198, 164, 91, 0.4);
+}
+
+.hero::before {
+    content: "✦";
+    position: absolute;
+    right: 12%;
+    top: 10%;
+    font-size: 240px;
+    color: rgba(198, 164, 91, 0.045);
+}
+
+.hero-content {
+    max-width: 720px;
+    position: relative;
+    z-index: 2;
+}
+
+.hero-tag,
+.section-tag {
+    color: var(--gold-light);
+    font-size: 12px;
+    letter-spacing: 3px;
+    font-weight: bold;
+}
+
+.hero h1 {
+    font-size: clamp(45px, 7vw, 78px);
+    line-height: 1.1;
+    color: var(--gold-light);
+    margin: 22px 0;
+    letter-spacing: 3px;
+}
+
+.hero h1 span {
+    display: block;
+    font-size: clamp(20px, 3vw, 29px);
+    color: var(--parchment);
+    font-weight: normal;
+    letter-spacing: 0;
+    margin-top: 18px;
+}
+
+.hero-content > p {
+    max-width: 600px;
+    color: #d5d1c3;
+    font-size: 17px;
+    margin-bottom: 30px;
+}
+
+.hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-bottom: 16px;
+}
+
+.primary-button,
+.secondary-button {
+    display: inline-block;
+    padding: 13px 23px;
+    font-size: 14px;
+    font-weight: bold;
+    transition: 0.3s;
+    text-align: center;
+}
+
+.primary-button {
+    background: var(--gold);
+    color: #211f18;
+    border: 1px solid var(--gold);
+}
+
+.primary-button:hover {
+    background: var(--gold-light);
+    transform: translateY(-3px);
+}
+
+.secondary-button {
+    color: var(--parchment);
+    border: 1px solid var(--gold);
+}
+
+.secondary-button:hover {
+    background: rgba(198, 164, 91, 0.15);
+    transform: translateY(-3px);
+}
+
+.github-link {
+    display: inline-block;
+    margin-top: 12px;
+    color: var(--gold-light);
+    font-size: 13px;
+}
+
+.github-link:hover {
+    text-decoration: underline;
+}
+
+.hero-decoration {
+    width: 260px;
+    min-width: 200px;
+    height: 260px;
+    border: 2px solid rgba(198, 164, 91, 0.5);
+    outline: 1px solid rgba(198, 164, 91, 0.25);
+    outline-offset: 12px;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--gold-light);
+    position: relative;
+    z-index: 1;
+}
+
+.hero-emblem {
+    font-size: 100px;
+    line-height: 1.2;
+}
+
+.hero-decoration span {
+    font-size: 10px;
+    letter-spacing: 3px;
+}
+
+
+/* SEÇÕES GERAIS */
+
+.section,
+.why {
+    padding: 90px 9%;
+    text-align: center;
+}
+
+.section h2,
+.why h2 {
+    color: var(--gold-light);
+    font-size: clamp(29px, 4vw, 43px);
+    margin: 12px 0 18px;
+}
+
+.section-description {
+    max-width: 720px;
+    margin: 0 auto 42px;
+    color: #d4cbb8;
+    font-size: 16px;
+}
+
+.why {
+    background: #202a21;
+}
+
+.why > p {
+    max-width: 760px;
+    margin: 15px auto;
+    color: #d4cbb8;
+}
+
+
+/* CARDS DE APRESENTAÇÃO */
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+    max-width: 1050px;
+    margin: 45px auto 0;
+}
+
+.feature-card {
+    padding: 30px 22px;
+    background: #29362b;
+    border: 1px solid rgba(198, 164, 91, 0.35);
+    transition: 0.3s;
+}
+
+.feature-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--gold);
+}
+
+.feature-icon {
+    display: block;
+    font-size: 38px;
+    color: var(--gold-light);
+    margin-bottom: 12px;
+}
+
+.feature-card h3 {
+    color: var(--gold-light);
+    margin-bottom: 10px;
+}
+
+.feature-card p {
+    color: #d2c8b4;
+    font-size: 14px;
+}
+
+
+/* HISTÓRIA DO MUNDO */
+
+.world-section {
+    background: #18221b;
+}
+
+.parchment-panel {
+    max-width: 900px;
+    margin: 45px auto 0;
+    padding: 14px;
+    background: #a88b52;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.35);
+}
+
+.parchment-inner {
+    padding: 45px 55px;
+    background:
+        radial-gradient(ellipse at top left, rgba(255,255,255,0.4), transparent 55%),
+        #e7d7ad;
+    border: 2px solid #9c7a3d;
+    outline: 1px solid rgba(103, 73, 33, 0.5);
+    outline-offset: -9px;
+    color: var(--text-dark);
+}
+
+.parchment-symbol {
+    display: block;
+    font-size: 35px;
+    color: #987438;
+}
+
+.parchment-inner h3 {
+    font-size: 27px;
+    margin: 12px 0 22px;
+    color: #513c25;
+}
+
+.parchment-inner p {
+    max-width: 680px;
+    margin: 14px auto;
+    font-size: 16px;
+    line-height: 1.9;
+}
+
+.development-label {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 8px 17px;
+    border: 1px solid #8a6c35;
+    color: #6d5128;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+
+/* PERSONAGENS */
+
+.characters-section {
+    background:
+        linear-gradient(rgba(31, 43, 33, 0.96), rgba(20, 27, 22, 0.98));
+}
+
+.carousel-container {
+    max-width: 1100px;
+    margin: 45px auto 0;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.carousel-track {
+    display: flex;
+    flex: 1;
+    gap: 22px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    padding: 12px 3px 20px;
+}
+
+.carousel-track::-webkit-scrollbar {
+    display: none;
+}
+
+.champion-card {
+    flex: 0 0 calc(50% - 11px);
+    min-width: 0;
+    overflow: hidden;
+    scroll-snap-align: start;
+    background: #e7d7ad;
+    color: var(--text-dark);
+    border: 1px solid var(--gold);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
+    text-align: left;
+    transition: 0.3s;
+}
+
+.champion-card:hover {
+    transform: translateY(-5px);
+}
+
+.champion-art {
+    min-height: 190px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    border-bottom: 4px solid var(--gold);
+}
+
+.champion-art span {
+    font-size: 75px;
+    filter: drop-shadow(0 5px 5px rgba(0,0,0,0.3));
+}
+
+.champion-art small {
+    position: absolute;
+    bottom: 12px;
+    right: 15px;
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: #f1dfb8;
+}
+
+.arya-art {
+    background: linear-gradient(135deg, #384b3b, #18251d);
+}
+
+.mage-art {
+    background: linear-gradient(135deg, #433a5c, #211d35);
+}
+
+.warrior-art {
+    background: linear-gradient(135deg, #633d36, #2b1d1b);
+}
+
+.champion-info {
+    padding: 24px;
+}
+
+.character-number {
+    font-size: 10px;
+    color: #856b3c;
+    letter-spacing: 2px;
+    font-weight: bold;
+}
+
+.champion-info h3 {
+    color: #513b27;
+    font-size: 30px;
+    margin-top: 5px;
+}
+
+.champion-info h4 {
+    color: #80673e;
+    font-size: 14px;
+    font-weight: normal;
+}
+
+.character-divider {
+    height: 1px;
+    background: #bca477;
+    margin: 17px 0;
+}
+
+.champion-info p {
+    font-size: 13px;
+    line-height: 1.7;
+    margin: 12px 0;
+}
+
+.champion-info strong {
+    color: #63492a;
+}
+
+.skills-box {
+    margin-top: 20px;
+    padding: 14px;
+    background: rgba(123, 94, 48, 0.1);
+    border-left: 3px solid var(--wine);
+}
+
+.skills-box > strong {
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: var(--wine);
+}
+
+.skills-box p {
+    margin-bottom: 0;
+}
+
+.carousel-nav-btn {
+    width: 43px;
+    height: 43px;
+    flex-shrink: 0;
+    border: 1px solid var(--gold);
+    background: var(--forest);
+    color: var(--gold-light);
+    font-size: 19px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.carousel-nav-btn:hover {
+    background: var(--gold);
+    color: var(--forest-dark);
+}
+
+.carousel-indicators {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 25px;
+}
+
+.carousel-dot {
+    width: 10px;
+    height: 10px;
+    border: none;
+    border-radius: 50%;
+    background: #697363;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.carousel-dot.active {
+    background: var(--gold-light);
+    transform: scale(1.3);
+}
+
+.carousel-hint {
+    margin-top: 18px;
+    color: #b9ae96;
+    font-size: 12px;
+}
+
+
+/* COMO JOGAR */
+
+.how-section {
+    background: #e7d7ad;
+    color: var(--text-dark);
+}
+
+.how-section .section-tag {
+    color: #846632;
+}
+
+.how-section h2 {
+    color: #493a27;
+}
+
+.how-section .section-description {
+    color: #65543a;
+}
+
+.steps-grid {
+    max-width: 1000px;
+    margin: 45px auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.step-card {
+    padding: 28px 20px;
+    background: #f1e5c6;
+    border: 1px solid #b69a62;
+    box-shadow: 0 7px 15px rgba(69, 50, 25, 0.12);
+}
+
+.step-card > span {
+    color: var(--wine);
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.step-card h3 {
+    color: #493a27;
+    margin: 10px 0;
+}
+
+.step-card p {
+    font-size: 14px;
+    color: #65543a;
+}
+
+.coming-soon {
+    max-width: 700px;
+    margin: 35px auto;
+    padding: 28px;
+    border: 1px solid #b69a62;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.coming-soon > span {
+    font-size: 28px;
+    color: #8b6b36;
+}
+
+.coming-soon h3 {
+    color: #493a27;
+    margin: 8px 0;
+}
+
+.coming-soon p {
+    color: #65543a;
+    font-size: 14px;
+}
+
+
+/* DESENVOLVIMENTO */
+
+.development-section {
+    background: linear-gradient(130deg, #29392d, #18221b);
+}
+
+.development-section h2 {
+    color: var(--gold-light);
+}
+
+.development-section > p {
+    max-width: 650px;
+    margin: 0 auto 30px;
+    color: #d2c8b4;
+}
+
+
+/* FOOTER */
+
+footer {
+    padding: 55px 20px 30px;
+    text-align: center;
+    background: #111713;
+    border-top: 1px solid rgba(198, 164, 91, 0.4);
+}
+
+.footer-logo {
+    display: inline-block;
+    color: var(--gold-light);
+    font-size: 25px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    margin-bottom: 10px;
+}
+
+footer p {
+    color: #bcb5a5;
+    font-size: 13px;
+    margin: 8px 0;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 25px;
+    margin: 23px 0;
+}
+
+.footer-links a {
+    color: var(--gold-light);
+    font-size: 13px;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
+footer .powered {
+    color: #a88d55;
+    font-size: 11px;
+    letter-spacing: 2px;
+    margin: 25px 0;
+}
+
+footer small {
+    color: #77796e;
+    font-size: 11px;
+}
+
+
+/* RESPONSIVIDADE */
+
+@media (max-width: 950px) {
+
+    .navbar {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .navbar nav {
+        order: 3;
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    .hero {
+        padding: 80px 6%;
+    }
+
+    .hero-decoration {
+        width: 190px;
+        height: 190px;
+    }
+
+    .hero-emblem {
+        font-size: 75px;
+    }
+
+    .champion-card {
+        flex-basis: 75%;
+    }
+
+}
+
+@media (max-width: 650px) {
+
+    .navbar {
+        padding: 15px 5%;
+    }
+
+    .navbar nav {
+        gap: 10px 16px;
+    }
+
+    .navbar nav a {
+        font-size: 12px;
+    }
+
+    .github-button {
+        padding: 7px 12px;
+    }
+
+    .hero {
+        min-height: auto;
+        padding: 80px 7%;
+    }
+
+    .hero-decoration {
+        display: none;
+    }
+
+    .hero h1 {
+        font-size: 45px;
+    }
+
+    .hero-content > p {
+        font-size: 15px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .section,
+    .why {
+        padding: 65px 6%;
+    }
+
+    .feature-grid,
+    .steps-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .parchment-panel {
+        padding: 8px;
+    }
+
+    .parchment-inner {
+        padding: 35px 22px;
+    }
+
+    .parchment-inner h3 {
+        font-size: 23px;
+    }
+
+    .parchment-inner p {
+        font-size: 14px;
+    }
+
+    .carousel-container {
+        gap: 7px;
+    }
+
+    .carousel-nav-btn {
+        width: 32px;
+        height: 38px;
+        font-size: 15px;
+    }
+
+    .champion-card {
+        flex-basis: 100%;
+    }
+
+    .champion-art {
+        min-height: 150px;
+    }
+
+    .champion-info {
+        padding: 19px;
+    }
+
+    .champion-info h3 {
+        font-size: 26px;
+    }
+
+    .footer-links {
+        gap: 12px;
+        flex-direction: column;
+    }
+
+}

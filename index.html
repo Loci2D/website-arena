@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+        content="Loci Arena — Battle Arena 2D multiplayer de fantasia. Escolha seu campeão, domine habilidades e lute em equipe pelo destino do reino.">
+
+    <title>Loci Arena — Battle Arena 2D Multiplayer</title>
+
+    <link rel="stylesheet" href="style.css?v=2">
+</head>
+
+<body>
+
+    <!-- =====================================================
+         CABEÇALHO & NAVEGAÇÃO
+    ===================================================== -->
+    <header class="navbar">
+
+        <div class="logo">
+            Loci Arena
+        </div>
+
+        <nav>
+            <a href="#inicio">Início</a>
+            <a href="#sobre">O Jogo</a>
+            <a href="#mundo">História & Mundo</a>
+            <a href="#personagens">Campeões</a>
+            <a href="#como-jogar">Como Jogar</a>
+            <a href="#equipe">Equipe</a>
+        </nav>
+
+        <a href="https://github.com/Loci2D/loci-arena" class="github-button" target="_blank" rel="noopener noreferrer">
+            Ver no GitHub
+        </a>
+
+    </header>
+
+
+    <main>
+
+        <!-- =====================================================
+             HERO / PRIMEIRA DOBRA — APRESENTAÇÃO DO JOGO
+        ===================================================== -->
+        <section class="hero" id="inicio">
+
+            <div class="hero-content">
+
+                <span class="hero-tag">
+                    BATTLE ARENA 2D • FANTASIA • MULTIPLAYER
+                </span>
+
+                <h1>
+                    Loci Arena
+                    <span>Combates lendários em uma arena 2D impiedosa.</span>
+                </h1>
+
+                <p>
+                    Reúna seus aliados, escolha seu campeão e domine habilidades únicas
+                    em confrontos estratégicos e frenéticos em tempo real.
+                </p>
+
+                <div class="hero-buttons">
+
+                    <a href="#personagens" class="primary-button">
+                        Conhecer os Campeões
+                    </a>
+
+                    <a href="#mundo" class="secondary-button">
+                        História do Mundo
+                    </a>
+
+                    <a href="https://github.com/Loci2D/loci-arena" class="secondary-button" target="_blank"
+                        rel="noopener noreferrer">
+                        Ver no GitHub
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             SOBRE O JOGO / PROPOSTA
+        ===================================================== -->
+        <section class="why" id="sobre">
+
+            <span class="section-tag">
+                SOBRE O JOGO
+            </span>
+
+            <h2>
+                Uma Arena, Infinitas Estratégias
+            </h2>
+
+            <p>
+                Loci Arena une a nostalgia das artes 2D com a intensidade dos combates em equipe.
+                Cada confronto exige reflexos afiados, posicionamento tático e sinergia entre classes para
+                conquistar a vitória sobre o time adversário.
+            </p>
+
+            <p>
+                Projetado do zero para oferecer jogabilidade responsiva, fluida e determinística, colocando a
+                habilidade dos jogadores sempre em primeiro lugar.
+            </p>
+
+        </section>
+
+
+        <!-- =====================================================
+             HISTÓRIA DO MUNDO & AMBIENTAÇÃO (LORE DO UNIVERSO)
+        ===================================================== -->
+        <section class="quickstart" id="mundo">
+
+            <div class="quickstart-header">
+
+                <span class="section-tag">
+                    CRÔNICAS DE LOCI
+                </span>
+
+                <h2>
+                    História do Mundo & Ambientação
+                </h2>
+
+                <p>
+                    Descubra as origens do conflito, os mistérios que cercam a Arena Ancestral
+                    e os segredos ocultos em cada canto do campo de batalha.
+                </p>
+
+            </div>
+
+            <!-- PAINEL PERGAMINHO COM MOLDURA DOURADA -->
+            <div class="quickstart-panel">
+
+                <div class="panel-content">
+
+                    <div class="code-header">
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                        <span class="code-title">Crônica Ancestral • Tomo I</span>
+                    </div>
+
+                    <h3 style="margin: 20px 0 12px; color: #37192C; font-size: 24px;">
+                        O Despertar da Arena dos Campeões
+                    </h3>
+
+                    <p style="font-size: 15px; line-height: 1.8; color: #555057; margin-bottom: 16px;">
+                        No coração do continente esquecido de Loci repousa a <strong>Arena dos Ancestrais</strong>, um
+                        santuário erguido
+                        por uma civilização antiga detentora de magias proibidas. Com o rompimento das Linhas de Éter,
+                        relíquias e
+                        fontes de energia pura emergiram das ruínas, atraindo guerreiros, magos e aventureiros de todas
+                        as linhagens.
+                    </p>
+
+                    <p style="font-size: 15px; line-height: 1.8; color: #555057; margin-bottom: 24px;">
+                        Aqui não há espaço para hesitação. O conflito central gira em torno do domínio dessas relíquias:
+                        quem controlar o coração da Arena terá o poder de moldar o destino do reino ou mergulhá-lo no
+                        caos eterno.
+                        Cada campeão traz consigo suas próprias motivações — redenção, ambição de glória ou a simples
+                        defesa dos inocentes.
+                    </p>
+
+                    <h3 style="margin: 28px 0 10px; color: #37192C; font-size: 20px;">
+                        🗺️ Elementos e Objetos do Campo de Batalha
+                    </h3>
+                    <p style="font-size: 14px; color: #66636A; margin-bottom: 16px;">
+                        O mapa não é apenas um pano de fundo, mas parte ativa da estratégia de combate:
+                    </p>
+
+                    <div class="map-objects-grid">
+
+                        <div class="map-object-card">
+                            <h4>🏛️ Pilares Ancestrais</h4>
+                            <p>
+                                Estruturas maciças de pedra que bloqueiam investidas frontais e projéteis arcanos.
+                                Essenciais para quebrar a linha de visão e preparar emboscadas.
+                            </p>
+                        </div>
+
+                        <div class="map-object-card">
+                            <h4>💎 Fontes de Éter</h4>
+                            <p>
+                                Pontos de poder concentrado que recarregam a energia dos campeões e aceleram o retorno
+                                das
+                                habilidades cruciais da equipe.
+                            </p>
+                        </div>
+
+                        <div class="map-object-card">
+                            <h4>🌿 Arbustos & Sombras</h4>
+                            <p>
+                                Zonas de cobertura que camuflam combatentes atentos, permitindo ataques surpresa
+                                devastadores
+                                contra inimigos desatentos.
+                            </p>
+                        </div>
+
+                        <div class="map-object-card">
+                            <h4>⚔️ Zona de Conflito Central</h4>
+                            <p>
+                                Onde os objetivos primários se manifestam. Controlar este ponto costuma definir o ritmo
+                                e o desfecho de cada duelo.
+                            </p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             GALERIA & DESCRITIVO DOS PERSONAGENS (CARROSSEL)
+        ===================================================== -->
+        <section class="about" id="personagens">
+
+            <div class="about-header">
+
+                <span class="section-tag">
+                    SELEÇÃO DE CAMPEÕES
+                </span>
+
+                <h2>
+                    Heróis & Combatentes da Arena
+                </h2>
+
+                <p>
+                    Conheça a história, papel tático e as habilidades distintas de cada personagem jogável.
+                    Navegue pelo carrossel para escolher o guerreiro que mais combina com seu estilo.
+                </p>
+
+            </div>
+
+            <div class="carousel-container">
+
+                <!-- BOTÃO ANTERIOR -->
+                <button class="carousel-nav-btn prev" id="championPrevBtn" aria-label="Campeão anterior">
+                    &#10094;
+                </button>
+
+                <!-- TRILHA DO CARROSSEL -->
+                <div class="carousel-track" id="championTrack">
+
+                    <!-- ===============================================================
+                         COMO ADICIONAR UM NOVO CAMPEÃO:
+                         Duplique o bloco <div class="team-card champion-card"> abaixo
+                         e preencha:
+                         - Ícone ou Imagem (.team-symbol ou .team-avatar)
+                         - Nome e Título no <h3>
+                         - Papel / Classe no <span class="champion-role">
+                         - Resumo da Lore no <p class="champion-lore">
+                         - Lista de habilidades no bloco .champion-skills
+                         O carrossel adapta a navegação automaticamente!
+                    ================================================================ -->
+
+                    <!-- CAMPEÃ 1: ARYA -->
+                    <div class="team-card champion-card">
+
+                        <div class="team-symbol">
+                            🛡️
+                        </div>
+
+                        <h3>Arya</h3>
+                        <span class="champion-role">A Guerreira Gentil • Protetora / Tanque</span>
+
+                        <p class="champion-lore">
+                            Nascida sob os juramentos da Ordem do Alvorecer, Arya empunha sua espada e escudo não por
+                            glória pessoal, mas para proteger aqueles que não podem lutar. Sua serenidade esconde
+                            uma fúria implacável quando um aliado é ameaçado dentro da arena.
+                        </p>
+
+                        <div class="champion-skills">
+                            <h4>⚔️ Habilidades</h4>
+                            <ul class="skill-list">
+                                <li><strong>Slash:</strong> Golpe rápido de corte à queima-roupa com sua espada longa.
+                                </li>
+                                <li><strong>Fúria:</strong> Entra em frenesi defensivo, reduzindo dano recebido e
+                                    aumentando velocidade.</li>
+                                <li><strong>Whirlwind Dash:</strong> Avanço giratório impetuoso que atordoa e
+                                    reposiciona adversários.</li>
+                                <li><strong>Blade Throw:</strong> Arremesso tático de lâmina que causa lentidão e
+                                    permite perseguição rápida.</li>
+                            </ul>
+                        </div>
+
+                    </div>
+
+
+                    <!-- CAMPEÃO 2: MAGE -->
+                    <div class="team-card champion-card">
+
+                        <div class="team-symbol">
+                            🔮
+                        </div>
+
+                        <h3>Mage</h3>
+                        <span class="champion-role">Arquimago do Éter • Dano à Distância</span>
+
+                        <p class="champion-lore">
+                            Estudioso dos tomos proibidos de Loci, busca decifrar os segredos da Arena Ancestral.
+                            Capaz de controlar os elementos arcanos à distância, compensa sua baixa resistência física
+                            com
+                            devastador controle de grupo e rajadas de alto impacto.
+                        </p>
+
+                        <div class="champion-skills">
+                            <h4>✨ Habilidades</h4>
+                            <ul class="skill-list">
+                                <li><strong>Arcane Bolt:</strong> Dispara orbes concentrados de energia arcana que
+                                    perfuram defesas.</li>
+                                <li><strong>Frost Nova:</strong> Congela o solo ao redor, imobilizando oponentes pegos
+                                    na área.</li>
+                                <li><strong>Blink:</strong> Teletransporte instantâneo de curto alcance para esquiva e
+                                    reposicionamento.</li>
+                                <li><strong>Meteor Strike:</strong> Invoca uma chuva de chamas celestes com dano massivo
+                                    em área.</li>
+                            </ul>
+                        </div>
+
+                    </div>
+
+
+                    <!-- CAMPEÃO 3: WARRIOR -->
+                    <div class="team-card champion-card">
+
+                        <div class="team-symbol">
+                            ⚔️
+                        </div>
+
+                        <h3>Warrior</h3>
+                        <span class="champion-role">O Berserker • Combatente de Linha de Frente</span>
+
+                        <p class="champion-lore">
+                            Um veterano forjado nas incontáveis guerras do norte. Entra na arena com a força bruta
+                            de um titã, destruindo formações inimigas e ganhando mais ímpeto quanto mais tempo permanece
+                            no calor do combate.
+                        </p>
+
+                        <div class="champion-skills">
+                            <h4>🔥 Habilidades</h4>
+                            <ul class="skill-list">
+                                <li><strong>Heavy Cleave:</strong> Golpe devastador que atinge múltiplos inimigos em
+                                    cone frontal.</li>
+                                <li><strong>Battle Charge:</strong> Investida inabalável que derruba o primeiro oponente
+                                    no trajeto.</li>
+                                <li><strong>Iron Will:</strong> Rompe controles de grupo e gera uma barreira temporária
+                                    de vida.</li>
+                                <li><strong>Ground Slam:</strong> Salta e esmaga o chão, causando dano massivo e
+                                    lentidão generalizada.</li>
+                            </ul>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- BOTÃO PRÓXIMO -->
+                <button class="carousel-nav-btn next" id="championNextBtn" aria-label="Próximo campeão">
+                    &#10095;
+                </button>
+
+            </div>
+
+            <!-- INDICADORES DINÂMICOS -->
+            <div class="carousel-indicators" id="championIndicators"></div>
+
+        </section>
+
+
+        <!-- =====================================================
+             COMO JOGAR & DINÂMICA DAS PARTIDAS
+        ===================================================== -->
+        <section class="how" id="como-jogar">
+
+            <span class="section-tag">
+                DINÂMICA DE COMBATE
+            </span>
+
+            <h2>
+                Como Dominar a Arena
+            </h2>
+
+            <p>
+                As partidas de Loci Arena são rápidas, intensas e exigem comunicação entre o time.
+                Conheça os três pilares fundamentais para sair vitorioso:
+            </p>
+
+            <div class="flow">
+
+                <div class="flow-item">
+                    <strong>1. Escolha & Sinergia</strong>
+                    <span>Combine classes e alinhe ataques com sua equipe antes do confronto.</span>
+                </div>
+
+                <div class="arrow">✦</div>
+
+                <div class="flow-item">
+                    <strong>2. Controle do Mapa</strong>
+                    <span>Use os pilares para cobertura e garanta os orbes de Éter pelo mapa.</span>
+                </div>
+
+                <div class="arrow">✦</div>
+
+                <div class="flow-item">
+                    <strong>3. Execução & Foco</strong>
+                    <span>Acerte combos de habilidades, proteja seus magos e elimine o alvo prioritário.</span>
+                </div>
+
+            </div>
+
+            <!-- CONTROLES & DOWNLOAD -->
+            <div style="max-width: 750px; margin: 45px auto 0; text-align: center;">
+
+                <p style="font-size: 16px; margin-bottom: 24px;">
+                    O jogo é open source e executável localmente ou em servidores dedicados.
+                    Acesse o repositório oficial para instruções de instalação e início rápido.
+                </p>
+
+                <div class="hero-buttons">
+                    <a href="https://github.com/Loci2D/loci-arena" class="primary-button" target="_blank"
+                        rel="noopener noreferrer">
+                        Baixar & Rodar o Loci Arena
+                    </a>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             EQUIPE & PARTICIPANTES DO PROJETO
+        ===================================================== -->
+        <section class="about" id="equipe">
+
+            <div class="about-header">
+
+                <span class="section-tag">
+                    DESENVOLVIMENTO & CRÉDITOS
+                </span>
+
+                <h2>
+                    Equipe do Projeto
+                </h2>
+
+                <p>
+                    Conheça as pessoas responsáveis pelo desenvolvimento do jogo e do servidor multiplayer.
+                </p>
+
+            </div>
+
+            <div class="carousel-container">
+
+                <!-- BOTÃO ANTERIOR -->
+                <button class="carousel-nav-btn prev" id="teamPrevBtn" aria-label="Participante anterior">
+                    &#10094;
+                </button>
+
+                <!-- TRILHA DO CARROSSEL DE EQUIPE -->
+                <div class="carousel-track" id="teamTrack">
+
+                    <!-- Integrante 1 -->
+                    <div class="team-card">
+                        <div class="team-symbol">⚔️</div>
+                        <h3>Nome do Participante 1</h3>
+                        <span>Arquiteto de Rede & Core</span>
+                        <p>
+                            Responsável pela arquitetura do servidor autoritativo em Rust, determinismo da simulação e protocolo de rede de baixa latência.
+                        </p>
+                    </div>
+
+                    <!-- Integrante 2 -->
+                    <div class="team-card">
+                        <div class="team-symbol">🛡️</div>
+                        <h3>Nome do Participante 2</h3>
+                        <span>Engenheiro de SDKs & Integração</span>
+                        <p>
+                            Desenvolve bibliotecas e plugins clientes para integração do Loci2D com engines de jogos como Godot, Unity e Bevy.
+                        </p>
+                    </div>
+
+                    <!-- Integrante 3 -->
+                    <div class="team-card">
+                        <div class="team-symbol">📜</div>
+                        <h3>Nome do Participante 3</h3>
+                        <span>Desenvolvedor Front-end & UX</span>
+                        <p>
+                            Projeta a interface visual, dashboards de monitoramento do servidor e ferramentas web para a comunidade de desenvolvedores.
+                        </p>
+                    </div>
+
+                    <!-- Integrante 4 -->
+                    <div class="team-card">
+                        <div class="team-symbol">🔮</div>
+                        <h3>Nome do Participante 4</h3>
+                        <span>DevOps & Infraestrutura</span>
+                        <p>
+                            Gerencia pipelines de integração contínua (CI/CD), empacotamento, testes automatizados e orquestração em nuvem.
+                        </p>
+                    </div>
+
+                    <!-- Integrante 5 -->
+                    <div class="team-card">
+                        <div class="team-symbol">🏹</div>
+                        <h3>Nome do Participante 5</h3>
+                        <span>Física 2D & Sistemas de Jogo</span>
+                        <p>
+                            Implementa os algoritmos de detecção de colisão, interpolação de snapshots e reconciliação de predição do cliente.
+                        </p>
+                    </div>
+
+                </div>
+
+                <!-- BOTÃO PRÓXIMO -->
+                <button class="carousel-nav-btn next" id="teamNextBtn" aria-label="Próximo participante">
+                    &#10095;
+                </button>
+
+            </div>
+
+            <!-- INDICADORES DINÂMICOS -->
+            <div class="carousel-indicators" id="teamIndicators"></div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =====================================================
+         RODAPÉ / CRÉDITOS & LINKS
+    ===================================================== -->
+    <footer>
+
+        <p>
+            <strong>Loci Arena</strong> — Battle Arena 2D Multiplayer
+        </p>
+
+        <p>
+            Desenvolvido com paixão pela comunidade open source.
+        </p>
+
+        <p style="margin-top: 10px;">
+            <a href="https://github.com/Loci2D/loci-arena" target="_blank" rel="noopener noreferrer">
+                Repositório Loci Arena (GitHub)
+            </a>
+            &nbsp;•&nbsp;
+            <a href="https://github.com/Loci2D/loci2d" target="_blank" rel="noopener noreferrer">
+                Loci2D Server Engine
+            </a>
+        </p>
+
+        <p style="font-size: 13px; color: #AB8749; margin-top: 15px;">
+            ⚡ Powered by <strong>Loci2D Engine</strong> (Rust Multiplayer Server)
+        </p>
+
+        <p style="font-size: 12px; color: #66636A; margin-top: 15px;">
+            © 2026 Loci Arena. Todos os direitos reservados.
+        </p>
+
+    </footer>
+
+
+    <!-- JAVASCRIPT DO CARROSSEL -->
+    <script src="script.js?v=2"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,6 @@
+services:
+  - type: web
+    name: loci2d-website
+    env: static
+    buildCommand: ""
+    staticPublishPath: .
